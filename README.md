@@ -14,10 +14,10 @@ Also use Slack's [python-slackclient](https://github.com/slackhq/python-slackcli
     - `virtualenv venv`
 - Install the dependencies
     - `pip install -r requirements`
-- Set the *FORECAST_API* and *SLACK_TOKEN* environment variables with the appropriate values
+- Set the **FORECAST_API** and **SLACK_TOKEN** environment variables with the appropriate values
     - `export FORECAST_API=<your_API_here>`
     - `export SLACK_TOKEN=<your_token_here>`
-- Set the variables in *config.yaml*
+- Set the variables in **config.yaml**
     - Latitude/longitude of the location you want to get weather reports for
     - Channel you want the messages sent to
     - Name of the Slack bot user you're using
