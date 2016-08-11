@@ -3,23 +3,12 @@
 import os
 import yaml
 import requests
-from slackclient import SlackClient
+import argparse
+import lib.config as config
+import lib.slack_bot as slack_bot
 
-forecast_url = "https://api.forecast.io/forecast/"
-forecast_api = os.environ['FORECAST_API']
-slackToken = os.environ['SLACK_TOKEN']
-sc = SlackClient(slackToken)
-
-def yaml_loader():
-    with open("config.yaml", "r") as file_descriptor:
-        data = yaml.load(file_descriptor)
-        location = data.get('variables')['location']
-        channel = data.get('variables')['channel']
-        username = data.get('variables')['username']
-    return location, channel, username
-
-def get_weather(location):
-    response = requests.get(forecast_url + forecast_api + "/" + location)
+def get_weather(url, api, location):
+    response = requests.get(url + api + "/" + location)
     json_data = response.json()
     weekSummary = json_data['daily']['summary']
     todaySummary = json_data['daily']['data'][0]['summary']
@@ -29,6 +18,18 @@ def get_weather(location):
     return weather
 
 if __name__ == "__main__":
-    location, channel, username = yaml_loader()
-    message = get_weather(location)
-    sc.api_call("chat.postMessage", channel=channel, text=message, username=username)
+    parser = argparse.ArgumentParser('Check the weather')
+    parser.add_argument('config', help='YAML configuration file')
+    args = parser.parse_args()
+    conf = config.Config(args.config)
+    location = conf['location']
+    forecast_api_url = conf['forecast_api_url']
+    forecast_api_token = conf['forecast_api_token']
+    slack_token = conf['slack_token']
+    channel = conf['slack_channel']
+    username = conf['slack_user']
+    bot = slack_bot.Slackbot(slack_token)
+    weather = get_weather(forecast_api_url,
+                          forecast_api_token,
+                          location)
+    bot.chat(channel, weather, username)
