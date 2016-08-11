@@ -8,8 +8,8 @@ Also use Slack's [python-slackclient](https://github.com/slackhq/python-slackcli
 
 ## Setup
 - Clone the repo
-..- `git clone https://github.com/ortizmj12/slack_forecast.git` or
-..- `git clone git@github.com:ortizmj12/slack_forecast.git`
+    `git clone https://github.com/ortizmj12/slack_forecast.git` or
+    `git clone git@github.com:ortizmj12/slack_forecast.git`
 - `cd` into the repo directory and create a new virtualenv
 ..- `virtualenv venv`
 - Install the dependencies
