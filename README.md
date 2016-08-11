@@ -11,20 +11,20 @@ Also use Slack's [python-slackclient](https://github.com/slackhq/python-slackcli
     - `git clone https://github.com/ortizmj12/slack_forecast.git` or
     - `git clone git@github.com:ortizmj12/slack_forecast.git`
 - `cd` into the repo directory and create a new virtualenv
-..- `virtualenv venv`
+    - `virtualenv venv`
 - Install the dependencies
-..- `pip install -r requirements`
+    - `pip install -r requirements`
 - Set the *FORECAST_API* and *SLACK_TOKEN* environment variables with the appropriate values
-..- `export FORECAST_API=<your_API_here>`
-..- `export SLACK_TOKEN=<your_token_here>`
+    - `export FORECAST_API=<your_API_here>`
+    - `export SLACK_TOKEN=<your_token_here>`
 - Set the variables in *config.yaml*
-..- Latitude/longitude of the location you want to get weather reports for
-..- Channel you want the messages sent to
-..- Name of the Slack bot user you're using
+    - Latitude/longitude of the location you want to get weather reports for
+    - Channel you want the messages sent to
+    - Name of the Slack bot user you're using
 - Activate the virtualenv
-..- `source venv/bin/activate`
+    - `source venv/bin/activate`
 - Send the weather to Slack
-..- `python forecast.py`
+    - `python forecast.py`
 
 
 ## Cron job it
