@@ -4,8 +4,8 @@ import os
 import yaml
 import requests
 import argparse
-import lib.config as config
-import lib.slack_bot as slack_bot
+import tools.config as config
+import tools.slack_bot as slack_bot
 
 def get_weather(url, api, location):
     response = requests.get(url + api + "/" + location)
