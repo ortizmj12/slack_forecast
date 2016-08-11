@@ -1,4 +1,4 @@
-# slack_forecast
+# slack-forecast
 
 A Slack bot that sends weather reports!
 
