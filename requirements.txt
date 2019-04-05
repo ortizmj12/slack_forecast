@@ -1,6 +1,6 @@
 backports.ssl-match-hostname==3.5.0.1
-PyYAML==3.11
-requests==2.11.0
+PyYAML>=4.2b1
+requests>=2.20.0
 six==1.10.0
 slackclient==1.0.1
 websocket-client==0.37.0
